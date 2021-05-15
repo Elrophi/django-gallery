@@ -1,6 +1,7 @@
 from django.db import models
 import datetime as dt
 from django.db.models.aggregates import Max
+from django.db.models.deletion import CASCADE
 
 # Create your models here.
 class Location(models.Model):
@@ -44,8 +45,8 @@ class Image(models.Model):
     image_description = models.TextField()
     author = models.CharField(max_length=60, default='admin')
     date = models.DateTimeField(auto_now_add=True)
-    image_location = models.ForeignKey(Location)
-    image_category = models.ForeignKey(Category)
+    image_location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    image_category = models.ForeignKey(Category, on_delete=CASCADE)
 
     def __str__(self):
         return self.image_name
