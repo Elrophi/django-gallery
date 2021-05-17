@@ -47,3 +47,8 @@
 ### Contact: 0700 000 000
 
 ---
+
+## Copyright and License
+[MIT License](https://github.com/Elrophi/django-gallery/blob/master/LICENSE)  
+
+
