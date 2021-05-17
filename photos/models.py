@@ -41,13 +41,13 @@ class Category(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/', null=True)
     image_name = models.CharField(max_length=100)
     image_description = models.TextField()
     author = models.CharField(max_length=60, default='admin')
     date = models.DateTimeField(auto_now_add=True)
-    image_location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    image_category = models.ForeignKey(Category, on_delete=CASCADE)
+    image_location = models.ForeignKey(Location, on_delete=models.DO_NOTHING)
+    image_category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.image_name
@@ -63,21 +63,24 @@ class Image(models.Model):
          cls.objects.filter(id=id).update(image=value)
 
     @classmethod
-    def get_image_bby_id(cls, id):
+    def get_image_by_id(cls, id):
         image = cls.objects.filter(id=id).all()
         return image
 
     @classmethod
-    def search_image(cls, category):
-        images = cls.objects.filter(category__name__icontains=category)
+    def search_image_by_category(cls, image_category):
+        images = cls.objects.filter(image_category__image_name__icontains=category)
         return images
 
     @classmethod
-    def filter_by_location(cls, location):
-        image_location = Image.objects.filter(location__name=location).all()
-        return image_location
+    def filter_by_location(cls, image_location):
+        image_locations = Image.objects.filter(image_location__image_name=location).all()
+        return image_locations
+
+    class Meta:
+        ordering = ['date']
 
 
 class uploads(models.Model):
     title = models.CharField(max_length=100)
-    image = CloudinaryField('image')
+    image = CloudinaryField('images')
