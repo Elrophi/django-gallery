@@ -29,5 +29,5 @@
 #### On your terminal run
 
     $ git clone https://github.com/Elrophi/django-gallery.git
-    $ cd news-app
+    $ cd gallery
     $ code .
