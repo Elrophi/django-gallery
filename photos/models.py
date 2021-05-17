@@ -2,6 +2,7 @@ from django.db import models
 import datetime as dt
 from django.db.models.aggregates import Max
 from django.db.models.deletion import CASCADE
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Location(models.Model):
@@ -77,3 +78,6 @@ class Image(models.Model):
         return image_location
 
 
+class uploads(models.Model):
+    title = models.CharField(max_length=100)
+    image = CloudinaryField('image')
