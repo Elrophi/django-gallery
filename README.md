@@ -35,7 +35,7 @@
     $ python -m venv <name of virtual environment>
     $ source <name of virtual environment>/bin/activate
 
-##  Install flask and modules needed
+##  Install django and modules needed
     $ python3 -m pip install django
     $ python3 -m install django-bootstrap5
     $python3 -m install pillow
