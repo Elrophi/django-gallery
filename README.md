@@ -9,12 +9,13 @@
 >Description
 ### THis is a simple app to look up few images and add images if you are an admin
 ---
-
 ## Technology Used: 
 >Bootstrap
 
 >Python
 
->Django
+>Flask
+
+>NEWS_API(RESTFUL API)
 ---
 
