@@ -2,4 +2,4 @@
 >## Author: [El-rophi Skwaila](https://github.com/Elrophi/django-gallery)
 
 
-[My Site photo](static/photo/rd.png)
+![My Site photo](https://github.com/Elrophi/django-gallery/blob/master/static/photo/rd.png)
