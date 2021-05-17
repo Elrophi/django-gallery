@@ -38,6 +38,6 @@
 ##  Install django and modules needed
     $ python3 -m pip install django
     $ python3 -m install django-bootstrap5
-    $python3 -m install pillow
-    $python3 -m install psycopg2
-    $python3 -m install cloudinary
+    $ python3 -m install pillow
+    $ python3 -m install psycopg2
+    $ python3 -m install cloudinary
