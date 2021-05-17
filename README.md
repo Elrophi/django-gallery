@@ -24,3 +24,10 @@
 - Virtual environment
 - bootstrap5
 - django, pillow, psycopg2, cloudinary 
+
+## Cloning and opening on compiler
+#### On your terminal run
+
+    $ git clone https://github.com/Elrophi/django-gallery.git
+    $ cd news-app
+    $ code .
