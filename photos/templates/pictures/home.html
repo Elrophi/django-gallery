@@ -2,4 +2,26 @@
 
 {% block content %}
 {{block.super}}
+{% block body %}
+	{% if images %}
+		{% for image in images %}
+        		<a href="{{ MEDIA_URL }}images/{{ image }}">
+					<img src="{{ MEDIA_URL }}images/thumbs/{{ image }}" alt="{{ image }}">
+				</a>
+			{% if forloop.counter|divisibleby:4 %}
+				<div class="clear"></div>
+			{% endif %}
+		{% endfor %}
+	{% else %}
+		<p id="image-section">No image available.</p>
+	{% endif %}
+{% endblock body %}
 {% endblock %}
+
+{% block extra_js %}
+	<script type='text/javascript'>
+		$(document).ready(function() {
+			$('.gallery a').simpleLightbox();
+		});
+	</script>
+{% endblock extra_js %}

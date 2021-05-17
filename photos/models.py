@@ -40,7 +40,7 @@ class Category(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField()
+    image = models.ImageField(upload_to='images/')
     image_name = models.CharField(max_length=100)
     image_description = models.TextField()
     author = models.CharField(max_length=60, default='admin')
