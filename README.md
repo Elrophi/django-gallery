@@ -41,3 +41,7 @@
     $ python3 -m install pillow
     $ python3 -m install psycopg2
     $ python3 -m install cloudinary
+
+# Creating the runtime.txt file to specify version of the app
+ - Create a file and name it runtime.txt
+ - in the file add your python version
