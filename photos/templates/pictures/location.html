@@ -1,7 +1,11 @@
 {% extends 'layout.html' %}
+
 {% block content %}
 <div class="container">
     <h2> Gallery</h2>
+    <a class="d-block mx-auto" href="/">
+    <button class="btn btn-sm btn-danger mb-4 text-decoration-none d-block mx-auto">Back Home</button>
+    </a>
     <hr>
 
     {% if location_images %}
