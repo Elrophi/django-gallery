@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% load static %}
 {% block content %}
 <div class="container">
 
@@ -8,21 +9,21 @@
     <h2 class="text-center" id="foundnon"> Found 0 images for your search {{message}}</h2>
 
     <a class="d-block mx-auto" href="/">
-        <button class="btn btn-sm btn-info d-block mx-auto">Back Home</button>
+        <button class="btn btn-sm btn-danger mb-4 text-decoration-none d-block mx-auto">Back Home</button>
     </a>
     {% endif %}
     {% if images %}
     <div class="card-columns">
         {% for image in images %}
-        <div class="card" data-toggle="modal" data-target="#{{image.id}}">
+        <div class="card" data-toggle="modal" data-target="#modal{{image.id}}">
             <img src="{{image.image.url}}" alt="{{image.name}}" class="card-img">
         </div>
-        <div class="modal fade " id="{{image.id}}" tabindex="-1" role="dialog"
+        <div class="modal fade " id="modal{{image.id}}" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content modalcard">
                     <div class="modal-header">
-                        <h5 class="modal-title d-block mx-auto" id="exampleModalLongTitle">{{image.name}}</h5>
+                        <h5 class="modal-title d-block mx-auto" id="exampleModalLongTitle">{{image.image_name}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -30,7 +31,7 @@
                     <div class="modal-body">
                         <img src="{{image.image.url}}" alt="{{image.name}}" class="img-fluid">
                         <p>{{image.description}}</p>
-                        <span class="btn btn-sm btn-outline-success">{{image.category | title}}</span> <a href="/location/{{image.location}}" class="btn btn-sm btn-outline-info">{{image.location}}</a>
+                        <span class="btn btn-sm btn-outline-success">{{image.category_name | title}}</span> <a href="/location/{{image.image_location}}" class="btn btn-sm btn-outline-info">{{image.image_location}}</a>
                     </div>
                     <div class="modal-footer">
                         <input class="form-control input-lg" type="text"

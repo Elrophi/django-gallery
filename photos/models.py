@@ -41,7 +41,7 @@ class Category(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='images/', null=True)
+    image = CloudinaryField('image')
     image_name = models.CharField(max_length=100)
     image_description = models.TextField()
     author = models.CharField(max_length=60, default='admin')
@@ -68,8 +68,8 @@ class Image(models.Model):
         return image
 
     @classmethod
-    def search_image_by_category(cls, image_category):
-        images = cls.objects.filter(image_category__image_name__icontains=category)
+    def search_image_by_category(cls, category):
+        images = cls.objects.filter(category__image_name__icontains=category)
         return images
 
     @classmethod
@@ -83,4 +83,4 @@ class Image(models.Model):
 
 class uploads(models.Model):
     title = models.CharField(max_length=100)
-    image = CloudinaryField('images')
+    image = CloudinaryField('image')
