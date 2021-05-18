@@ -38,9 +38,9 @@
        <img src="{{image.image.url}}" alt="{{image.image_name}}" height="100px" width="200px">
       </div>
       <div class="modal-footer">
-          <input type="text" value="{{image.image.url}}">
+          <input type="text" value="{{image.image.url}}" id="myInput">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Copy</button>
+        <button type="button" class="btn btn-primary" onclick="Hello()">Copy</button>
       </div>
     </div>
   </div>
@@ -50,4 +50,12 @@
     </div>
 </div>
 
+<script>
+  function Hello() {
+  var copyText = document.getElementById('myInput')
+  copyText.select();
+  document.execCommand('copy')
+  console.log('Copied Text')
+}
+</script>
 {% endblock %}
