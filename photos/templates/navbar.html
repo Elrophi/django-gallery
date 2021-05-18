@@ -39,8 +39,7 @@
     <div class="row h-100 align-items-center">
       <div class="col-12 text-center">
         <form class="d-flex" role="search" action="{% url 'search' %}">
-        {% csrf_token %}
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="imagesearch">
           <button class="btn btn-outline-danger text-white" type="submit">Search</button>
         </form>
         <h1 class="font-weight-light text-white">Welcome to my photo gallery</h1>

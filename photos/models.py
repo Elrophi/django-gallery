@@ -41,7 +41,7 @@ class Category(models.Model):
 
 
 class Image(models.Model):
-    image = CloudinaryField('image')
+    image = CloudinaryField('image', null=True)
     image_name = models.CharField(max_length=100)
     image_description = models.TextField()
     author = models.CharField(max_length=60, default='admin')
@@ -68,13 +68,13 @@ class Image(models.Model):
         return image
 
     @classmethod
-    def search_image_by_category(cls, category):
-        images = cls.objects.filter(category__image_name__icontains=category)
+    def search_image_by_category(cls, image_category):
+        images = cls.objects.filter(image_category__category_name__contains=image_category).all()
         return images
 
     @classmethod
     def filter_by_location(cls, image_location):
-        image_locations = Image.objects.filter(image_location__image_name=location).all()
+        image_locations = Image.objects.filter(image_location__location_name__contains=image_location).all()
         return image_locations
 
     class Meta:

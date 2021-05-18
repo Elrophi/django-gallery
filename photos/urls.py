@@ -6,7 +6,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('location/', views.image_location, name='location'),
+    path('location/<location>', views.image_location, name='location'),
     path('search/',views.search, name='search'),
 ]
 if settings.DEBUG:
